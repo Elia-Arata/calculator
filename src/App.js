@@ -1,23 +1,77 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
 function App() {
+  const [calc, setCalc] = useState("");
+  const [result, setResult] = useState("");
+
+  const operazioni = ["/", "*", "+", "-", "."];
+
+  const updateCalc = (value) => {
+    if (
+      (operazioni.includes(value) && calc === "") ||
+      (operazioni.includes(value) && operazioni.includes(calc.slice(-1)))
+    ) {
+      return;
+    }
+
+    setCalc(calc + value);
+    if (!operazioni.includes(value)) {
+      setResult(eval(calc + value).toString());
+    }
+  };
+
+  const createNumeri = () => {
+    const numeri = [];
+
+    for (let i = 1; i < 10; i++) {
+      numeri.push(
+        <button onClick={() => updateCalc(i.toString())} key={i}>
+          {i}
+        </button>
+      );
+    }
+    return numeri;
+  };
+
+  const calculate = () => {
+    setCalc(eval(calc).toString());
+  };
+
+  const deleteLast = () => {
+    if (calc == "") {
+      return;
+    }
+
+    const value = calc.slice(0, -1);
+
+    setCalc(value);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="calcolatori">
+        <div className="display">
+          {result ? <span>({result})</span> : ""}&nbsp;
+          {calc || "0"}
+        </div>
+
+        <div className="operatori">
+          <button onClick={() => updateCalc("/")}>/</button>
+          <button onClick={() => updateCalc("*")}>*</button>
+          <button onClick={() => updateCalc("+")}>+</button>
+          <button onClick={() => updateCalc("-")}>-</button>
+
+          <button onClick={deleteLast}>C</button>
+        </div>
+
+        <div className="numeri">
+          {createNumeri()}
+          <button onClick={() => updateCalc("0")}>0</button>
+          <button onClick={() => updateCalc(".")}>.</button>
+
+          <button onClick={calculate}>=</button>
+        </div>
+      </div>
     </div>
   );
 }
