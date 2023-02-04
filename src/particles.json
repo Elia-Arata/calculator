@@ -46,7 +46,7 @@
       },
       "random": false,
       "speed": 6,
-      "straight": false
+      "straight": true
     },
     "number": {
       "density": {
