@@ -1,15 +1,6 @@
-import { useCallback, useState } from "react";
-import Particles from "react-particles";
-import { loadFull } from "tsparticles";
-import particlesOptions from "./particles.json";
-
+import { useState } from "react";
 
 function App() {
-  const particlesInit = useCallback(main => {
-    loadFull(main);
-  }, [])
-
-
   const [calc, setCalc] = useState("");
   const [result, setResult] = useState("");
 
@@ -58,7 +49,6 @@ function App() {
 
   return (
     <div className="App">
-      <Particles options={particlesOptions} init={particlesInit} />
       <div className="calcolatori">
         <div className="display">
           {result ? <span>({result})</span> : ""}&nbsp;
