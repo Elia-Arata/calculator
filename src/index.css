@@ -1,17 +1,20 @@
 :root {
-    --primary: #d81e5b70;
+    --primary: #d81e5b;
     --secondary: #8c38ff;
-    --dark: rgba(255, 255, 255, 0.1);
-    ;
+    --dark: #131a26;
     --light: #eee;
-    --white: rgba(255, 255, 255, 0.8);
 }
 
 * {
-    margin: 0;
+    margin: o;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Fira Sans', sans-serif;
+}
+
+body {
+    /*background-color: var(--light);*/
+    background-image: linear-gradient(180deg, #ff6aff 0, #ff67ff 12.5%, #ff63ff 25%, #ed5cff 37.5%, #bc53f2 50%, #8c49db 62.5%, #5f40c5 75%, #2d38b0 87.5%, #00329e 100%);
 }
 
 .App {
@@ -21,14 +24,14 @@
     justify-content: center;
     padding: 16%;
 }
-
 .calcolatori {
     width: 100%;
     max-width: 400px;
+    background-color: #fff;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0px 0px 8px 0px rgb(255 255 255 / 45%);
-    backdrop-filter: blur(3px);
+    box-shadow: 0px 2px 64px rgba(0, 0, 0, 0.2);
+    
 }
 
 .display {
@@ -38,19 +41,19 @@
     color: var(--light);
     font-size: 24px;
     font-weight: 300;
-
+    
 }
 
 .display {
-    font-size: 20px;
-    color: var(--white);
+    font-size: 14px;
+    color: #888;
 }
 
-button {
+button  {
     appearance: none;
     border: none;
     outline: none;
-    color: var(--white);
+    color: #fff;
     font-size: 20px;
     padding: 16px;
     cursor: pointer;
@@ -58,38 +61,56 @@ button {
 }
 
 button:hover {
-    background-color: rgba(255, 255, 255, 0.4) !important;
+    opacity: 0.9;
 }
 
 .operatori {
     display: flex;
 }
-
 .operatori button {
-    flex: 1 1 0%;
-    background-color: var(--primary);
-    font-weight: 700;
+flex: 1 1 0%;
+background-color: var(--primary);
+font-weight: 700;
 }
 
 .numeri {
     display: flex;
     flex-wrap: wrap;
-    background-color: var(--dark);
 }
 
 .numeri button {
     flex: 1 1 33.333%;
     max-width: 33.333%;
-    background-color: transparent;
+    background-color: var(--dark);
+    
+    
+     
 }
 
-#tsparticles {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    left: 0;
-    top: 0;
-    z-index: -1;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
